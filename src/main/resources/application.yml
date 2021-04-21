@@ -1,0 +1,15 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: portainer
+          uri: http://localhost:9000/#!/home
+          predicates:
+            - Path=/portainer/**
+        - id: client
+          uri: http://localhost:8082/
+          predicates:
+            - Path=/mv-fatur-auditoria/**
