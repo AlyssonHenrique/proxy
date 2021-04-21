@@ -5,10 +5,11 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: portainer
-          uri: http://localhost:9000/#!/home
+        - id: prefixpath_route
+          uri: http://localhost:9000/
           predicates:
-            - Path=/portainer/**
+            - Host={teste}
+
         - id: client
           uri: http://localhost:8082/
           predicates:
